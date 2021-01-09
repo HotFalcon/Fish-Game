@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Win </title>
+<script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
+<script>
+function start(){
+sjs.open();
+
+//Background Music
+var playM = new Audio('Music/holiday.mp3');
+var toggle = true;
+var musicOn = false;
+sjs.keyDown(SPACE_KEY, function(){
+if(toggle == true){
+if(musicOn == false){
+playM.play();
+musicOn = true;
+} else {
+playM.pause();
+musicOn = false;
+}
+toggle = false;
+setTimeout(function(){
+toggle = true;
+},1000);
+} //end if toggle statement
+}); //end keyDown function
+
+
+var image = new sjs.Image("https://s3-us-west-2.amazonaws.com/simplycoding/GameDesignVideos/Images/fireworks.gif");
+image.setSize(500, 400);
+
+var win_text = new sjs.Text("You Win!",28,"blue");
+win_text.centerH();
+
+var startBtn = new sjs.Button("Play Again?", function(){
+window.location = "fish.html";
+});
+startBtn.center();
+}
+</script>
+</head>
+<body onload="start()" style="margin:auto;background:#57FEFF;">
+<h1> You Win </h1>
+
+<div id="target" style="margin:auto;background:grey;"></div>
+</body>
+</html>
